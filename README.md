@@ -12,8 +12,8 @@
 6. Results
 
    
-           1. Truth
-                   \
-    2. Knowledge -> 4. Bias -> 5. Variance -> 6. Error
-                   /
-                    3. Morality
+               1. Truth
+                       \
+       2. Knowledge -> 4. Bias -> 5. Variance -> 6. Error
+                       /
+                        3. Morality
