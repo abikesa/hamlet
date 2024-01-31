@@ -11,8 +11,8 @@
 5. Action or Means::`Confession` This is about the methods or approaches used to achieve the goal. In Hamlet, this relates to the various plots and plans he concocts. In a research or project setting, this could involve choosing the right methodologies, technologies (like Jupyter-books, GitHub), and analytical frameworks (such as random effects models) to advance your work.
 6. Results or Do::`Blood` Finally, this is the action phase. For Hamlet, it's the culmination of his plans. For you, it's the execution of your research or projects, applying your interdisciplinary knowledge and resources to achieve your objectives, whether it's in understanding ICCs in different disciplines or launching a tech startup.
 
-               1. Truth
-                       \
-       2. Knowledge -> 4. Bias -> 5. Variance -> 6. Error
-                       /
-                        3. Morality
+               1. Fiction
+                         \
+           2. Passion -> 4. Tears -> 5. Hecuba -> 6. Actor
+                         /
+                         3. Conceit
