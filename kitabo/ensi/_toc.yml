@@ -1,0 +1,54 @@
+# Dionysus
+format: jb-book
+root: index
+chapters:
+  # Sing O Muse!
+  - file: act1/part1
+    sections:
+      - title: Lyre
+        file: act1/chapter1
+      - title: Roulette
+        file: act1/chapter2
+      - title: Spear
+        file: act1/chapter3
+        
+  # Sing O Muse!
+  - file: act2/part2
+    sections:
+      - title: Paradise
+        file: act2/chapter1
+      - title: Earth
+        file: act2/chapter2
+      - title: Hell
+        file: act2/chapter3
+
+  # Apollo
+  - file: act3/part3
+    sections:
+      - title: Strategy
+        file: act3/act1
+        sections:
+          - title: Biology
+            file: act3/part1/part1_1
+          - title: Sociology
+            file: act3/part1/part1_2
+          - title: Psychology
+            file: act3/part1/part1_3
+      - title: Equilibria
+        file: act3/act2
+        sections:
+          - title: Cooperative
+            file: act3/part2/part2_1
+          - title: Iterative
+            file: act3/part2/part2_2
+          - title: Adversarial
+            file: act3/part2/part2_3
+      - title: Payoff
+        file: act3/act3
+        sections:
+          - title: Forward Propagation
+            file: act3/part3/part3_1
+          - title: Back Propagation
+            file: act3/part3/part3_2
+
+  - file: act3/part3/part3_3
