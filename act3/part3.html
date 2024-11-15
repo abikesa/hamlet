@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Redemption (Weights) &#8212; Zarathustra</title>
+    <title> &#8212; Zarathustra</title>
   
   
   
@@ -67,8 +67,8 @@
     <script src="../_static/script.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Strategy" href="act1.html" />
-    <link rel="prev" title="Hell" href="../act2/chapter3.html" />
+    <link rel="next" title="Bickle" href="act1.html" />
+    <link rel="prev" title="Detour" href="../act2/chapter3.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -199,7 +199,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../act2/chapter3.html">Hell</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">Redemption (Weights)</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#"></a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2 has-children"><a class="reference internal" href="act1.html">Strategy</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3"><a class="reference internal" href="part1/part1_1.html">Biology</a></li>
 <li class="toctree-l3"><a class="reference internal" href="part1/part1_2.html">Sociology</a></li>
@@ -387,7 +387,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Redemption (Weights)</h1>
+    <h1></h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -401,8 +401,8 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="redemption-weights">
-<span id="id1"></span><h1>Redemption (Weights)<a class="headerlink" href="#redemption-weights" title="Permalink to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="id1">
+<h1><a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h1>
 <div class="cell tag_hide-input docutils container">
 <details class="hide above-input">
 <summary aria-label="Toggle hidden content">
@@ -410,214 +410,118 @@ document.write(`
 <span class="expanded">Hide code cell source</span>
 </summary>
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">import</span> <span class="nn">networkx</span> <span class="k">as</span> <span class="nn">nx</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">networkx</span> <span class="k">as</span> <span class="nn">nx</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 
-<span class="c1"># Define the neural network structure</span>
-<span class="n">input_nodes</span> <span class="o">=</span> <span class="p">[</span>
-    <span class="s1">&#39;Molecular&#39;</span><span class="p">,</span> <span class="s1">&#39;Cellular&#39;</span><span class="p">,</span> <span class="s1">&#39;Tissue&#39;</span><span class="p">,</span> 
-    <span class="s1">&#39;Strategy&#39;</span><span class="p">,</span> <span class="s1">&#39;Learning&#39;</span>
-<span class="p">]</span>
-<span class="n">output_nodes</span> <span class="o">=</span> <span class="p">[</span>
-    <span class="s1">&#39;Homeostasis&#39;</span><span class="p">,</span> <span class="s1">&#39;Organizations&#39;</span><span class="p">,</span> <span class="s1">&#39;Nations&#39;</span><span class="p">,</span> 
-    <span class="s1">&#39;Payoff&#39;</span><span class="p">,</span> <span class="s1">&#39;Decisions&#39;</span>
+<span class="c1"># Define input nodes, including specific neural effects of White Russian components</span>
+<span class="n">input_nodes_patient</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;Oxytocin&#39;</span><span class="p">,</span> <span class="s1">&#39;Serotonin&#39;</span><span class="p">,</span> <span class="s1">&#39;Progesterone&#39;</span><span class="p">,</span> <span class="s1">&#39;Estrogen&#39;</span><span class="p">,</span> <span class="s1">&#39;Adenosine&#39;</span><span class="p">,</span> <span class="s1">&#39;Magnesium&#39;</span><span class="p">,</span> <span class="s1">&#39;Phonetics&#39;</span><span class="p">,</span> <span class="s1">&#39;Temperament&#39;</span><span class="p">,</span> 
+    <span class="s1">&#39;Degree&#39;</span><span class="p">,</span> <span class="s1">&#39;Scale&#39;</span><span class="p">,</span> <span class="s1">&#39;ATP&#39;</span><span class="p">,</span> <span class="s1">&#39;NAD+&#39;</span><span class="p">,</span> <span class="s1">&#39;Glutathion&#39;</span><span class="p">,</span> <span class="s1">&#39;Glutamate&#39;</span><span class="p">,</span> <span class="s1">&#39;GABA&#39;</span><span class="p">,</span> <span class="s1">&#39;Endorphin&#39;</span><span class="p">,</span> <span class="s1">&#39;Qualities&#39;</span><span class="p">,</span> 
+    <span class="s1">&#39;Extensions&#39;</span><span class="p">,</span> <span class="s1">&#39;Alterations&#39;</span><span class="p">,</span> <span class="s1">&#39;Dopamine&#39;</span><span class="p">,</span> <span class="s1">&#39;Caffeine&#39;</span><span class="p">,</span> <span class="s1">&#39;Testosterone&#39;</span><span class="p">,</span> <span class="s1">&#39;Noradrenaline&#39;</span><span class="p">,</span> <span class="s1">&#39;Adrenaline&#39;</span><span class="p">,</span> <span class="s1">&#39;Cortisol&#39;</span><span class="p">,</span> 
+    <span class="s1">&#39;Time&#39;</span><span class="p">,</span> <span class="s1">&#39;Military&#39;</span><span class="p">,</span> <span class="s1">&#39;Cadence&#39;</span><span class="p">,</span> <span class="s1">&#39;Pockets&#39;</span>
 <span class="p">]</span>
 
-<span class="n">hidden_layer_labels</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Animal&#39;</span><span class="p">,</span> <span class="s1">&#39;Human&#39;</span><span class="p">,</span> <span class="s1">&#39;Machine&#39;</span><span class="p">]</span>
+<span class="c1"># Define hidden layer nodes as archetypal latent space with distinct archetypes</span>
+<span class="n">hidden_layer_labels_patient</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;Paradiso (Embodied)&#39;</span><span class="p">,</span> <span class="s1">&#39;Limbo (Tokenized)&#39;</span><span class="p">,</span> <span class="s1">&#39;Inferno (Weakness)&#39;</span>
+<span class="p">]</span>
+
+<span class="c1"># Define output nodes for linear social validation hierarchy</span>
+<span class="n">output_nodes_patient</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;Health&#39;</span><span class="p">,</span> <span class="s1">&#39;Family&#39;</span><span class="p">,</span> <span class="s1">&#39;Community&#39;</span><span class="p">,</span> <span class="s1">&#39;Local&#39;</span><span class="p">,</span> <span class="s1">&#39;Regional&#39;</span><span class="p">,</span> <span class="s1">&#39;NexToken&#39;</span><span class="p">,</span> <span class="s1">&#39;National&#39;</span><span class="p">,</span> <span class="s1">&#39;Global&#39;</span><span class="p">,</span> <span class="s1">&#39;Interstellar&#39;</span>
+<span class="p">]</span>
 
 <span class="c1"># Initialize graph</span>
-<span class="n">G</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">DiGraph</span><span class="p">()</span>
+<span class="n">G_patient</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">DiGraph</span><span class="p">()</span>
 
-<span class="c1"># Add input layer nodes</span>
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">input_nodes</span><span class="p">)):</span>
-    <span class="n">G</span><span class="o">.</span><span class="n">add_node</span><span class="p">(</span><span class="n">input_nodes</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">layer</span><span class="o">=</span><span class="s1">&#39;input&#39;</span><span class="p">)</span>
+<span class="c1"># Add all nodes to the graph</span>
+<span class="n">G_patient</span><span class="o">.</span><span class="n">add_nodes_from</span><span class="p">(</span><span class="n">input_nodes_patient</span><span class="p">,</span> <span class="n">layer</span><span class="o">=</span><span class="s1">&#39;input&#39;</span><span class="p">)</span>
+<span class="n">G_patient</span><span class="o">.</span><span class="n">add_nodes_from</span><span class="p">(</span><span class="n">hidden_layer_labels_patient</span><span class="p">,</span> <span class="n">layer</span><span class="o">=</span><span class="s1">&#39;hidden&#39;</span><span class="p">)</span>
+<span class="n">G_patient</span><span class="o">.</span><span class="n">add_nodes_from</span><span class="p">(</span><span class="n">output_nodes_patient</span><span class="p">,</span> <span class="n">layer</span><span class="o">=</span><span class="s1">&#39;output&#39;</span><span class="p">)</span>
 
-<span class="c1"># Add hidden layer nodes and label them</span>
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">hidden_layer_labels</span><span class="p">)):</span>
-    <span class="n">G</span><span class="o">.</span><span class="n">add_node</span><span class="p">(</span><span class="n">hidden_layer_labels</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">layer</span><span class="o">=</span><span class="s1">&#39;hidden&#39;</span><span class="p">)</span>
+<span class="c1"># Key narrative pathways to capture White Russian dynamics</span>
+<span class="n">thick_edges_patient</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">(</span><span class="s1">&#39;GABA&#39;</span><span class="p">,</span> <span class="s1">&#39;Paradiso (Embodied)&#39;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s1">&#39;Adenosine&#39;</span><span class="p">,</span> <span class="s1">&#39;Paradiso (Embodied)&#39;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s1">&#39;Caffeine&#39;</span><span class="p">,</span> <span class="s1">&#39;Paradiso (Embodied)&#39;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s1">&#39;Testosterone&#39;</span><span class="p">,</span> <span class="s1">&#39;Paradiso (Embodied)&#39;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s1">&#39;Oxytocin&#39;</span><span class="p">,</span> <span class="s1">&#39;Paradiso (Embodied)&#39;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s1">&#39;Serotonin&#39;</span><span class="p">,</span> <span class="s1">&#39;Paradiso (Embodied)&#39;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s1">&#39;Endorphin&#39;</span><span class="p">,</span> <span class="s1">&#39;Paradiso (Embodied)&#39;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s1">&#39;ATP&#39;</span><span class="p">,</span> <span class="s1">&#39;Paradiso (Embodied)&#39;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s1">&#39;Paradiso (Embodied)&#39;</span><span class="p">,</span> <span class="s1">&#39;Community&#39;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s1">&#39;Dopamine&#39;</span><span class="p">,</span> <span class="s1">&#39;Inferno (Weakness)&#39;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s1">&#39;Cortisol&#39;</span><span class="p">,</span> <span class="s1">&#39;Inferno (Weakness)&#39;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s1">&#39;Adrenaline&#39;</span><span class="p">,</span> <span class="s1">&#39;Inferno (Weakness)&#39;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s1">&#39;Time&#39;</span><span class="p">,</span> <span class="s1">&#39;Inferno (Weakness)&#39;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s1">&#39;Military&#39;</span><span class="p">,</span> <span class="s1">&#39;Inferno (Weakness)&#39;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s1">&#39;Cadence&#39;</span><span class="p">,</span> <span class="s1">&#39;Inferno (Weakness)&#39;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s1">&#39;Pockets&#39;</span><span class="p">,</span> <span class="s1">&#39;Inferno (Weakness)&#39;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s1">&#39;Inferno (Weakness)&#39;</span><span class="p">,</span> <span class="s1">&#39;Regional&#39;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s1">&#39;Inferno (Weakness)&#39;</span><span class="p">,</span> <span class="s1">&#39;NexToken&#39;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s1">&#39;Inferno (Weakness)&#39;</span><span class="p">,</span> <span class="s1">&#39;National&#39;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s1">&#39;Inferno (Weakness)&#39;</span><span class="p">,</span> <span class="s1">&#39;Global&#39;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s1">&#39;Inferno (Weakness)&#39;</span><span class="p">,</span> <span class="s1">&#39;Interstellar&#39;</span><span class="p">)</span>
+<span class="p">]</span>
 
-<span class="c1"># Add output layer nodes</span>
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">output_nodes</span><span class="p">)):</span>
-    <span class="n">G</span><span class="o">.</span><span class="n">add_node</span><span class="p">(</span><span class="n">output_nodes</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">layer</span><span class="o">=</span><span class="s1">&#39;output&#39;</span><span class="p">)</span>
+<span class="c1"># Connect all input nodes to hidden layer archetypes</span>
+<span class="k">for</span> <span class="n">input_node</span> <span class="ow">in</span> <span class="n">input_nodes_patient</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">hidden_node</span> <span class="ow">in</span> <span class="n">hidden_layer_labels_patient</span><span class="p">:</span>
+        <span class="n">G_patient</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="n">input_node</span><span class="p">,</span> <span class="n">hidden_node</span><span class="p">)</span>
 
-<span class="c1"># Add edges between input and hidden nodes</span>
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">input_nodes</span><span class="p">)):</span>
-    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">hidden_layer_labels</span><span class="p">)):</span>
-        <span class="n">G</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="n">input_nodes</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">hidden_layer_labels</span><span class="p">[</span><span class="n">j</span><span class="p">])</span>
+<span class="c1"># Connect hidden layer archetypes to output nodes with regular connections</span>
+<span class="k">for</span> <span class="n">hidden_node</span> <span class="ow">in</span> <span class="n">hidden_layer_labels_patient</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">output_node</span> <span class="ow">in</span> <span class="n">output_nodes_patient</span><span class="p">:</span>
+        <span class="n">G_patient</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="n">hidden_node</span><span class="p">,</span> <span class="n">output_node</span><span class="p">)</span>
 
-<span class="c1"># Add edges between hidden and output nodes</span>
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">hidden_layer_labels</span><span class="p">)):</span>
-    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">output_nodes</span><span class="p">)):</span>
-        <span class="n">G</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="n">hidden_layer_labels</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">output_nodes</span><span class="p">[</span><span class="n">j</span><span class="p">])</span>
+<span class="c1"># Define layout positions</span>
+<span class="n">pos_patient</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">node</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">input_nodes_patient</span><span class="p">):</span>
+    <span class="n">pos_patient</span><span class="p">[</span><span class="n">node</span><span class="p">]</span> <span class="o">=</span> <span class="p">((</span><span class="n">i</span> <span class="o">+</span> <span class="mf">0.5</span><span class="p">)</span> <span class="o">*</span> <span class="mf">0.25</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>  <span class="c1"># Input nodes at the bottom</span>
 
-<span class="c1"># Define layout to rotate the graph so that the input layer is at the bottom and the output at the top</span>
-<span class="n">pos</span> <span class="o">=</span> <span class="p">{}</span>
-<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">node</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">input_nodes</span><span class="p">):</span>
-    <span class="n">pos</span><span class="p">[</span><span class="n">node</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">i</span> <span class="o">*</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>  <span class="c1"># Input nodes at the bottom</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">node</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">output_nodes_patient</span><span class="p">):</span>
+    <span class="n">pos_patient</span><span class="p">[</span><span class="n">node</span><span class="p">]</span> <span class="o">=</span> <span class="p">((</span><span class="n">i</span> <span class="o">+</span> <span class="mf">1.5</span><span class="p">)</span> <span class="o">*</span> <span class="mf">0.6</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>  <span class="c1"># Output nodes at the top</span>
 
-<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">node</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">output_nodes</span><span class="p">):</span>
-    <span class="n">pos</span><span class="p">[</span><span class="n">node</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">i</span> <span class="o">*</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>  <span class="c1"># Output nodes at the top</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">node</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">hidden_layer_labels_patient</span><span class="p">):</span>
+    <span class="n">pos_patient</span><span class="p">[</span><span class="n">node</span><span class="p">]</span> <span class="o">=</span> <span class="p">((</span><span class="n">i</span> <span class="o">+</span> <span class="mi">3</span><span class="p">)</span> <span class="o">*</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>  <span class="c1"># Hidden nodes in the middle layer</span>
 
-<span class="c1"># Add hidden layer nodes in the middle</span>
-<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">node</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">hidden_layer_labels</span><span class="p">):</span>
-    <span class="n">pos</span><span class="p">[</span><span class="n">node</span><span class="p">]</span> <span class="o">=</span> <span class="p">((</span><span class="n">i</span> <span class="o">+</span> <span class="mf">.9</span><span class="p">)</span> <span class="o">*</span> <span class="mf">.5</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>  <span class="c1"># Hidden nodes in the middle layer</span>
+<span class="c1"># Define color scheme for nodes based on archetypes and White Russian dynamics</span>
+<span class="n">node_colors_patient</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;paleturquoise&#39;</span> <span class="k">if</span> <span class="n">node</span> <span class="ow">in</span> <span class="n">input_nodes_patient</span><span class="p">[:</span><span class="mi">10</span><span class="p">]</span> <span class="o">+</span> <span class="n">hidden_layer_labels_patient</span><span class="p">[:</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">output_nodes_patient</span><span class="p">[:</span><span class="mi">3</span><span class="p">]</span> <span class="k">else</span>
+    <span class="s1">&#39;lightgreen&#39;</span> <span class="k">if</span> <span class="n">node</span> <span class="ow">in</span> <span class="n">input_nodes_patient</span><span class="p">[</span><span class="mi">10</span><span class="p">:</span><span class="mi">20</span><span class="p">]</span> <span class="o">+</span> <span class="n">hidden_layer_labels_patient</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">2</span><span class="p">]</span> <span class="o">+</span> <span class="n">output_nodes_patient</span><span class="p">[</span><span class="mi">3</span><span class="p">:</span><span class="mi">6</span><span class="p">]</span> <span class="k">else</span>
+    <span class="s1">&#39;lightsalmon&#39;</span> <span class="k">if</span> <span class="n">node</span> <span class="ow">in</span> <span class="n">input_nodes_patient</span><span class="p">[</span><span class="mi">20</span><span class="p">:]</span> <span class="o">+</span> <span class="n">hidden_layer_labels_patient</span><span class="p">[</span><span class="mi">2</span><span class="p">:]</span> <span class="o">+</span> <span class="n">output_nodes_patient</span><span class="p">[</span><span class="mi">6</span><span class="p">:]</span> <span class="k">else</span>
+    <span class="s1">&#39;lightgray&#39;</span>
+    <span class="k">for</span> <span class="n">node</span> <span class="ow">in</span> <span class="n">G_patient</span><span class="o">.</span><span class="n">nodes</span><span class="p">()</span>
+<span class="p">]</span>
 
-<span class="c1"># Draw the graph with different colors for specific nodes</span>
-<span class="n">node_colors</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="k">for</span> <span class="n">node</span> <span class="ow">in</span> <span class="n">G</span><span class="o">.</span><span class="n">nodes</span><span class="p">():</span>
-    <span class="k">if</span> <span class="n">node</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;Homeostasis&#39;</span><span class="p">,</span> <span class="s1">&#39;Animal&#39;</span><span class="p">,</span> <span class="s1">&#39;Molecular&#39;</span><span class="p">,</span> <span class="s1">&#39;Cellular&#39;</span><span class="p">,</span> <span class="s1">&#39;Tissue&#39;</span><span class="p">]:</span>
-        <span class="n">node_colors</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;paleturquoise&#39;</span><span class="p">)</span>
-    <span class="k">elif</span> <span class="n">node</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;Strategy&#39;</span><span class="p">,</span> <span class="s1">&#39;Human&#39;</span><span class="p">,</span> <span class="s1">&#39;Organizations&#39;</span><span class="p">,</span> <span class="s1">&#39;Nations&#39;</span><span class="p">,</span> <span class="s1">&#39;Payoff&#39;</span><span class="p">]:</span>
-        <span class="n">node_colors</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;lightgreen&#39;</span><span class="p">)</span>
-    <span class="k">elif</span> <span class="n">node</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;Learning&#39;</span><span class="p">,</span> <span class="s1">&#39;Machine&#39;</span><span class="p">,</span> <span class="s1">&#39;Decisions&#39;</span><span class="p">]:</span>
-        <span class="n">node_colors</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;lightsalmon&#39;</span><span class="p">)</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="n">node_colors</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;lightgray&#39;</span><span class="p">)</span>
+<span class="c1"># Set edge widths with thickened lines for key narrative pathways</span>
+<span class="n">edge_widths_patient</span> <span class="o">=</span> <span class="p">[</span><span class="mi">3</span> <span class="k">if</span> <span class="n">edge</span> <span class="ow">in</span> <span class="n">thick_edges_patient</span> <span class="k">else</span> <span class="mf">0.2</span> <span class="k">for</span> <span class="n">edge</span> <span class="ow">in</span> <span class="n">G_patient</span><span class="o">.</span><span class="n">edges</span><span class="p">()]</span>
 
-<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
-<span class="n">nx</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span> <span class="n">with_labels</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">node_size</span><span class="o">=</span><span class="mi">3000</span><span class="p">,</span> <span class="n">node_color</span><span class="o">=</span><span class="n">node_colors</span><span class="p">,</span> <span class="n">font_size</span><span class="o">=</span><span class="mi">9</span><span class="p">,</span> <span class="n">font_weight</span><span class="o">=</span><span class="s1">&#39;bold&#39;</span><span class="p">,</span> <span class="n">arrows</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="c1"># Draw graph with rotated positions, thicker narrative edges, and archetypal colors</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">30</span><span class="p">,</span> <span class="mi">40</span><span class="p">))</span>
+<span class="n">pos_rotated</span> <span class="o">=</span> <span class="p">{</span><span class="n">node</span><span class="p">:</span> <span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="o">-</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">node</span><span class="p">,</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span> <span class="ow">in</span> <span class="n">pos_patient</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span>
 
-<span class="c1"># Show the plot</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Neural Network Diagram - Intraspecies &amp; Interspecies Interactions&quot;</span><span class="p">)</span>
+<span class="n">nx</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="n">G_patient</span><span class="p">,</span> <span class="n">pos_rotated</span><span class="p">,</span> <span class="n">with_labels</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">node_size</span><span class="o">=</span><span class="mi">3500</span><span class="p">,</span> <span class="n">node_color</span><span class="o">=</span><span class="n">node_colors_patient</span><span class="p">,</span> 
+        <span class="n">font_size</span><span class="o">=</span><span class="mi">9</span><span class="p">,</span> <span class="n">font_weight</span><span class="o">=</span><span class="s1">&#39;bold&#39;</span><span class="p">,</span> <span class="n">arrows</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="n">edge_widths_patient</span><span class="p">)</span>
+
+<span class="c1"># Add title and remove axes for clean visualization</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;For on His Choice Depends The Sanctity and Health of this Whole State&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../_images/d6a52d8159bcfa795357eacd898d259e6476c0e8fd1d74581581fb9753f58e17.png" src="../_images/d6a52d8159bcfa795357eacd898d259e6476c0e8fd1d74581581fb9753f58e17.png" />
+<img alt="../_images/ebdf160099fd3e58d5af2fc53dacf4be8aa0f364519a991ebf3867be196952e3.png" src="../_images/ebdf160099fd3e58d5af2fc53dacf4be8aa0f364519a991ebf3867be196952e3.png" />
 </div>
 </div>
 <figure class="align-default" id="id2">
 <a class="reference internal image-reference" href="../_images/blanche.png"><img alt="../_images/blanche.png" src="../_images/blanche.png" style="width: 1px; height: 1px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 19 </span><span class="caption-text"><em>Redemption</em>. This involves negotiating strategic alliances (green). Childhood innocence under the umbrella of parents and family will not suffice, since growth demands engagement with broader social cirles. But the weights &amp; biases of the various edges are rarely zero. Consider dogs for instance. Dogs seem to have a built-in understanding of risk management—like they have their own mental <code class="docutils literal notranslate"><span class="pre">strategic</span></code> model of “insurance.” They instinctively gauge threats, avoid dangerous situations, and seek comfort in predictable routines, acting almost like they’re securing their well-being in a world of uncertainty. They ‘pay their premiums’ by staying loyal to their owners and maintaining social bonds, ensuring their ‘coverage’ in terms of protection, food, and care. It’s as if dogs, through their pack mentality and relationships with <code class="docutils literal notranslate"><span class="pre">humans</span></code>, understand the trade-offs of loyalty and survival (see <span class="xref std std-ref">fall</span>). They choose to be loyal, which gives them access to a “policy” that covers them against hunger, danger, and solitude. If we extend that analogy, dogs might even grasp “risk pools,” sharing the burden and reward of protection within the pack. Maybe they don’t need actuaries—just good instincts and trust in the pack! But <code class="docutils literal notranslate"><span class="pre">learning</span></code> <a class="reference external" href="https://www.nobelprize.org/uploads/2018/06/aumann-lecture.pdf">war</a> &amp; the craft of making spears against their master is beyond their abilities. So their roulette bet is on the hope &amp; goodwill of their master. Tyler Perry’s <em>Beauty in Black</em> asks whether its protagonists can evolve from animal &amp; human – and will-to-power to become übermench or überfrau.</span><a class="headerlink" href="#id2" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 3 </span><span class="caption-text">Here is the graph representing Travis Bickle’s narrative structure. It captures the neurochemical and psychological inputs driving his archetypal states—Paradiso, Limbo, and Inferno—and their impact on his societal interactions. Key pathways are thickened to highlight his descent into violence and fractured attempts at connection. Let me know if you’d like to refine the details further or add annotations!</span><a class="headerlink" href="#id2" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
-<div class="cell tag_hide-input docutils container">
-<details class="hide above-input">
-<summary aria-label="Toggle hidden content">
-<span class="collapsed">Show code cell source</span>
-<span class="expanded">Hide code cell source</span>
-</summary>
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pygame</span>
-<span class="kn">import</span> <span class="nn">random</span>
-
-<span class="c1"># Initialize Pygame</span>
-<span class="n">pygame</span><span class="o">.</span><span class="n">init</span><span class="p">()</span>
-
-<span class="c1"># Constants</span>
-<span class="n">SCREEN_WIDTH</span><span class="p">,</span> <span class="n">SCREEN_HEIGHT</span> <span class="o">=</span> <span class="mi">800</span><span class="p">,</span> <span class="mi">600</span>
-<span class="n">RING_RADIUS</span> <span class="o">=</span> <span class="mi">200</span>
-<span class="n">WRESTLER_RADIUS</span> <span class="o">=</span> <span class="mi">25</span>
-<span class="n">SPEED</span> <span class="o">=</span> <span class="mi">5</span>
-
-<span class="c1"># Colors</span>
-<span class="n">WHITE</span> <span class="o">=</span> <span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">)</span>
-<span class="n">BLACK</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
-<span class="n">RED</span> <span class="o">=</span> <span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
-<span class="n">BLUE</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="p">)</span>
-
-<span class="c1"># Setup the display</span>
-<span class="n">screen</span> <span class="o">=</span> <span class="n">pygame</span><span class="o">.</span><span class="n">display</span><span class="o">.</span><span class="n">set_mode</span><span class="p">((</span><span class="n">SCREEN_WIDTH</span><span class="p">,</span> <span class="n">SCREEN_HEIGHT</span><span class="p">))</span>
-<span class="n">pygame</span><span class="o">.</span><span class="n">display</span><span class="o">.</span><span class="n">set_caption</span><span class="p">(</span><span class="s2">&quot;Sumo Wrestling&quot;</span><span class="p">)</span>
-
-<span class="k">class</span> <span class="nc">Wrestler</span><span class="p">:</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">color</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">x</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="n">y</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">color</span> <span class="o">=</span> <span class="n">color</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">dx</span> <span class="o">=</span> <span class="mi">0</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">dy</span> <span class="o">=</span> <span class="mi">0</span>
-
-    <span class="k">def</span> <span class="nf">move</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">x</span> <span class="o">+=</span> <span class="bp">self</span><span class="o">.</span><span class="n">dx</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">y</span> <span class="o">+=</span> <span class="bp">self</span><span class="o">.</span><span class="n">dy</span>
-
-    <span class="k">def</span> <span class="nf">push</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
-        <span class="c1"># Simple push logic, can be enhanced</span>
-        <span class="n">dx</span> <span class="o">=</span> <span class="n">other</span><span class="o">.</span><span class="n">x</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">x</span>
-        <span class="n">dy</span> <span class="o">=</span> <span class="n">other</span><span class="o">.</span><span class="n">y</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">y</span>
-        <span class="n">distance</span> <span class="o">=</span> <span class="p">(</span><span class="n">dx</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">dy</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">**</span><span class="mf">0.5</span>
-        <span class="k">if</span> <span class="n">distance</span> <span class="o">&lt;</span> <span class="n">WRESTLER_RADIUS</span> <span class="o">*</span> <span class="mi">2</span><span class="p">:</span>
-            <span class="n">other</span><span class="o">.</span><span class="n">dx</span> <span class="o">=</span> <span class="o">-</span><span class="n">dx</span> <span class="o">*</span> <span class="mf">0.1</span>
-            <span class="n">other</span><span class="o">.</span><span class="n">dy</span> <span class="o">=</span> <span class="o">-</span><span class="n">dy</span> <span class="o">*</span> <span class="mf">0.1</span>
-
-    <span class="k">def</span> <span class="nf">draw</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">surface</span><span class="p">):</span>
-        <span class="n">pygame</span><span class="o">.</span><span class="n">draw</span><span class="o">.</span><span class="n">circle</span><span class="p">(</span><span class="n">surface</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">color</span><span class="p">,</span> <span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">x</span><span class="p">),</span> <span class="nb">int</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">y</span><span class="p">)),</span> <span class="n">WRESTLER_RADIUS</span><span class="p">)</span>
-
-<span class="k">def</span> <span class="nf">is_out_of_ring</span><span class="p">(</span><span class="n">wrestler</span><span class="p">):</span>
-    <span class="n">distance</span> <span class="o">=</span> <span class="p">((</span><span class="n">wrestler</span><span class="o">.</span><span class="n">x</span> <span class="o">-</span> <span class="n">SCREEN_WIDTH</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="p">(</span><span class="n">wrestler</span><span class="o">.</span><span class="n">y</span> <span class="o">-</span> <span class="n">SCREEN_HEIGHT</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">**</span><span class="mf">0.5</span>
-    <span class="k">return</span> <span class="n">distance</span> <span class="o">&gt;</span> <span class="n">RING_RADIUS</span>
-
-<span class="c1"># Create wrestlers</span>
-<span class="n">red_wrestler</span> <span class="o">=</span> <span class="n">Wrestler</span><span class="p">(</span><span class="n">SCREEN_WIDTH</span><span class="o">//</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">50</span><span class="p">,</span> <span class="n">SCREEN_HEIGHT</span><span class="o">//</span><span class="mi">2</span><span class="p">,</span> <span class="n">RED</span><span class="p">)</span>
-<span class="n">blue_wrestler</span> <span class="o">=</span> <span class="n">Wrestler</span><span class="p">(</span><span class="n">SCREEN_WIDTH</span><span class="o">//</span><span class="mi">2</span> <span class="o">+</span> <span class="mi">50</span><span class="p">,</span> <span class="n">SCREEN_HEIGHT</span><span class="o">//</span><span class="mi">2</span><span class="p">,</span> <span class="n">BLUE</span><span class="p">)</span>
-
-<span class="c1"># Game loop</span>
-<span class="n">running</span> <span class="o">=</span> <span class="kc">True</span>
-<span class="n">clock</span> <span class="o">=</span> <span class="n">pygame</span><span class="o">.</span><span class="n">time</span><span class="o">.</span><span class="n">Clock</span><span class="p">()</span>
-<span class="k">while</span> <span class="n">running</span><span class="p">:</span>
-    <span class="k">for</span> <span class="n">event</span> <span class="ow">in</span> <span class="n">pygame</span><span class="o">.</span><span class="n">event</span><span class="o">.</span><span class="n">get</span><span class="p">():</span>
-        <span class="k">if</span> <span class="n">event</span><span class="o">.</span><span class="n">type</span> <span class="o">==</span> <span class="n">pygame</span><span class="o">.</span><span class="n">QUIT</span><span class="p">:</span>
-            <span class="n">running</span> <span class="o">=</span> <span class="kc">False</span>
-
-    <span class="c1"># Clear the screen</span>
-    <span class="n">screen</span><span class="o">.</span><span class="n">fill</span><span class="p">(</span><span class="n">BLACK</span><span class="p">)</span>
-
-    <span class="c1"># Draw the ring</span>
-    <span class="n">pygame</span><span class="o">.</span><span class="n">draw</span><span class="o">.</span><span class="n">circle</span><span class="p">(</span><span class="n">screen</span><span class="p">,</span> <span class="n">WHITE</span><span class="p">,</span> <span class="p">(</span><span class="n">SCREEN_WIDTH</span><span class="o">//</span><span class="mi">2</span><span class="p">,</span> <span class="n">SCREEN_HEIGHT</span><span class="o">//</span><span class="mi">2</span><span class="p">),</span> <span class="n">RING_RADIUS</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
-
-    <span class="c1"># Handle keyboard input for red wrestler</span>
-    <span class="n">keys</span> <span class="o">=</span> <span class="n">pygame</span><span class="o">.</span><span class="n">key</span><span class="o">.</span><span class="n">get_pressed</span><span class="p">()</span>
-    <span class="n">red_wrestler</span><span class="o">.</span><span class="n">dx</span> <span class="o">=</span> <span class="p">(</span><span class="n">keys</span><span class="p">[</span><span class="n">pygame</span><span class="o">.</span><span class="n">K_RIGHT</span><span class="p">]</span> <span class="o">-</span> <span class="n">keys</span><span class="p">[</span><span class="n">pygame</span><span class="o">.</span><span class="n">K_LEFT</span><span class="p">])</span> <span class="o">*</span> <span class="n">SPEED</span>
-    <span class="n">red_wrestler</span><span class="o">.</span><span class="n">dy</span> <span class="o">=</span> <span class="p">(</span><span class="n">keys</span><span class="p">[</span><span class="n">pygame</span><span class="o">.</span><span class="n">K_DOWN</span><span class="p">]</span> <span class="o">-</span> <span class="n">keys</span><span class="p">[</span><span class="n">pygame</span><span class="o">.</span><span class="n">K_UP</span><span class="p">])</span> <span class="o">*</span> <span class="n">SPEED</span>
-
-    <span class="c1"># AI or simple input for blue wrestler</span>
-    <span class="n">blue_wrestler</span><span class="o">.</span><span class="n">dx</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">([</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span> <span class="o">*</span> <span class="n">SPEED</span>
-    <span class="n">blue_wrestler</span><span class="o">.</span><span class="n">dy</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">([</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span> <span class="o">*</span> <span class="n">SPEED</span>
-
-    <span class="c1"># Move wrestlers</span>
-    <span class="n">red_wrestler</span><span class="o">.</span><span class="n">move</span><span class="p">()</span>
-    <span class="n">blue_wrestler</span><span class="o">.</span><span class="n">move</span><span class="p">()</span>
-
-    <span class="c1"># Push logic</span>
-    <span class="n">red_wrestler</span><span class="o">.</span><span class="n">push</span><span class="p">(</span><span class="n">blue_wrestler</span><span class="p">)</span>
-    <span class="n">blue_wrestler</span><span class="o">.</span><span class="n">push</span><span class="p">(</span><span class="n">red_wrestler</span><span class="p">)</span>
-
-    <span class="c1"># Check if out of ring</span>
-    <span class="k">if</span> <span class="n">is_out_of_ring</span><span class="p">(</span><span class="n">red_wrestler</span><span class="p">):</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Blue Wins!&quot;</span><span class="p">)</span>
-        <span class="n">running</span> <span class="o">=</span> <span class="kc">False</span>
-    <span class="k">if</span> <span class="n">is_out_of_ring</span><span class="p">(</span><span class="n">blue_wrestler</span><span class="p">):</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Red Wins!&quot;</span><span class="p">)</span>
-        <span class="n">running</span> <span class="o">=</span> <span class="kc">False</span>
-
-    <span class="c1"># Keep wrestlers within screen bounds</span>
-    <span class="n">red_wrestler</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">WRESTLER_RADIUS</span><span class="p">,</span> <span class="nb">min</span><span class="p">(</span><span class="n">red_wrestler</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">SCREEN_WIDTH</span> <span class="o">-</span> <span class="n">WRESTLER_RADIUS</span><span class="p">))</span>
-    <span class="n">red_wrestler</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">WRESTLER_RADIUS</span><span class="p">,</span> <span class="nb">min</span><span class="p">(</span><span class="n">red_wrestler</span><span class="o">.</span><span class="n">y</span><span class="p">,</span> <span class="n">SCREEN_HEIGHT</span> <span class="o">-</span> <span class="n">WRESTLER_RADIUS</span><span class="p">))</span>
-    <span class="n">blue_wrestler</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">WRESTLER_RADIUS</span><span class="p">,</span> <span class="nb">min</span><span class="p">(</span><span class="n">blue_wrestler</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">SCREEN_WIDTH</span> <span class="o">-</span> <span class="n">WRESTLER_RADIUS</span><span class="p">))</span>
-    <span class="n">blue_wrestler</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">WRESTLER_RADIUS</span><span class="p">,</span> <span class="nb">min</span><span class="p">(</span><span class="n">blue_wrestler</span><span class="o">.</span><span class="n">y</span><span class="p">,</span> <span class="n">SCREEN_HEIGHT</span> <span class="o">-</span> <span class="n">WRESTLER_RADIUS</span><span class="p">))</span>
-
-    <span class="c1"># Draw wrestlers</span>
-    <span class="n">red_wrestler</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="n">screen</span><span class="p">)</span>
-    <span class="n">blue_wrestler</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="n">screen</span><span class="p">)</span>
-
-    <span class="n">pygame</span><span class="o">.</span><span class="n">display</span><span class="o">.</span><span class="n">flip</span><span class="p">()</span>
-    <span class="n">clock</span><span class="o">.</span><span class="n">tick</span><span class="p">(</span><span class="mi">60</span><span class="p">)</span>
-
-<span class="n">pygame</span><span class="o">.</span><span class="n">quit</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-</details>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Red Wins!
-</pre></div>
-</div>
-</div>
-</div>
 <div class="toctree-wrapper compound">
 </div>
 </section>
@@ -658,7 +562,7 @@ document.write(`
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Hell</p>
+        <p class="prev-next-title">Detour</p>
       </div>
     </a>
     <a class="right-next"
@@ -666,7 +570,7 @@ document.write(`
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Strategy</p>
+        <p class="prev-next-title">Bickle</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
