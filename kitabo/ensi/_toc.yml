@@ -5,21 +5,21 @@ chapters:
   # Sing O Muse!
   - file: act1/part1
     sections:
-      - title: Lyre
+      - title: Network
         file: act1/chapter1
-      - title: Roulette
+      - title: Layers
         file: act1/chapter2
-      - title: Spear
+      - title: Vision
         file: act1/chapter3
         
   # Sing O Muse!
   - file: act2/part2
     sections:
-      - title: Paradise
+      - title: Histology
         file: act2/chapter1
-      - title: Earth
+      - title: Ligands
         file: act2/chapter2
-      - title: Hell
+      - title: Pathways
         file: act2/chapter3
 
   # Apollo
