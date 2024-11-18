@@ -796,6 +796,166 @@ Mr Döpfner was an early convert to online business. He sold off some of Springe
 <li><p><strong>Tense and Resolute</strong>: The b9 and #9 clash beautifully, creating a shimmering tension that resolves cyclically back to the root.</p></li>
 <li><p><strong>Universal and Personal</strong>: It retains the exoticism of Spanish Phrygian while grounding it in the broader, more universal language of Mixolydian extensions.</p></li>
 </ol>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Re-import necessary libraries and reinitialize the neural network model with previous settings.</span>
+<span class="kn">import</span> <span class="nn">networkx</span> <span class="k">as</span> <span class="nn">nx</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="c1"># Define input nodes, including specific neural effects of White Russian components</span>
+<span class="n">input_nodes_patient</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;Oxytocin</span><span class="se">\n</span><span class="s1"> ♯9&#39;</span><span class="p">,</span> <span class="s1">&#39;Serotonin</span><span class="se">\n</span><span class="s1"> 11&#39;</span><span class="p">,</span> <span class="s1">&#39;Progesterone</span><span class="se">\n</span><span class="s1"> ♭13&#39;</span><span class="p">,</span> <span class="s1">&#39;Estrogen</span><span class="se">\n</span><span class="s1"> ♭7&#39;</span><span class="p">,</span> <span class="s1">&#39;Adenosine</span><span class="se">\n</span><span class="s1"> 1&#39;</span><span class="p">,</span> <span class="s1">&#39;Magnesium&#39;</span><span class="p">,</span> <span class="s1">&#39;Phonetics&#39;</span><span class="p">,</span> <span class="s1">&#39;Temperament&#39;</span><span class="p">,</span> 
+    <span class="s1">&#39;Degree&#39;</span><span class="p">,</span> <span class="s1">&#39;Scale&#39;</span><span class="p">,</span> <span class="s1">&#39;ATP</span><span class="se">\n</span><span class="s1"> ♭9&#39;</span><span class="p">,</span> <span class="s1">&#39;NAD+</span><span class="se">\n</span><span class="s1"> 5&#39;</span><span class="p">,</span> <span class="s1">&#39;Glutathion&#39;</span><span class="p">,</span> <span class="s1">&#39;Glutamate&#39;</span><span class="p">,</span> <span class="s1">&#39;GABA&#39;</span><span class="p">,</span> <span class="s1">&#39;Endorphin&#39;</span><span class="p">,</span> <span class="s1">&#39;Qualities&#39;</span><span class="p">,</span> 
+    <span class="s1">&#39;Extensions&#39;</span><span class="p">,</span> <span class="s1">&#39;Alterations&#39;</span><span class="p">,</span> <span class="s1">&#39;Dopamine&#39;</span><span class="p">,</span>  <span class="s1">&#39;Caffeine</span><span class="se">\n</span><span class="s1"> &#39;</span><span class="p">,</span> <span class="s1">&#39;Testosterone</span><span class="se">\n</span><span class="s1"> 7&#39;</span><span class="p">,</span> <span class="s1">&#39;Noradrenaline</span><span class="se">\n</span><span class="s1"> 9&#39;</span><span class="p">,</span> <span class="s1">&#39;Adrenaline</span><span class="se">\n</span><span class="s1"> ♮3&#39;</span><span class="p">,</span> <span class="s1">&#39;Cortisol</span><span class="se">\n</span><span class="s1"> ♯11&#39;</span><span class="p">,</span> 
+    <span class="s1">&#39;Time</span><span class="se">\n</span><span class="s1"> 13&#39;</span><span class="p">,</span> <span class="s1">&#39;Military&#39;</span><span class="p">,</span> <span class="s1">&#39;Cadence&#39;</span><span class="p">,</span> <span class="s1">&#39;Pockets&#39;</span>
+<span class="p">]</span>
+
+<span class="c1"># Define hidden layer nodes as archetypal latent space with distinct archetypes</span>
+<span class="n">hidden_layer_labels_patient</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;Pentatonic&#39;</span><span class="p">,</span> <span class="s1">&#39;Diatonic&#39;</span><span class="p">,</span> <span class="s1">&#39;Chromatic&#39;</span>
+<span class="p">]</span>
+
+<span class="c1"># Define output nodes for linear social validation hierarchy</span>
+<span class="n">output_nodes_patient</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;Health&#39;</span><span class="p">,</span> <span class="s1">&#39;Family&#39;</span><span class="p">,</span> <span class="s1">&#39;Community&#39;</span><span class="p">,</span> <span class="s1">&#39;Local&#39;</span><span class="p">,</span> <span class="s1">&#39;Regional&#39;</span><span class="p">,</span> <span class="s1">&#39;NexToken&#39;</span><span class="p">,</span> <span class="s1">&#39;National&#39;</span><span class="p">,</span> <span class="s1">&#39;Global&#39;</span><span class="p">,</span> <span class="s1">&#39;Interstellar&#39;</span>
+<span class="p">]</span>
+
+<span class="c1"># Initialize graph</span>
+<span class="n">G_patient</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">DiGraph</span><span class="p">()</span>
+
+<span class="c1"># Add all nodes to the graph</span>
+<span class="n">G_patient</span><span class="o">.</span><span class="n">add_nodes_from</span><span class="p">(</span><span class="n">input_nodes_patient</span><span class="p">,</span> <span class="n">layer</span><span class="o">=</span><span class="s1">&#39;input&#39;</span><span class="p">)</span>
+<span class="n">G_patient</span><span class="o">.</span><span class="n">add_nodes_from</span><span class="p">(</span><span class="n">hidden_layer_labels_patient</span><span class="p">,</span> <span class="n">layer</span><span class="o">=</span><span class="s1">&#39;hidden&#39;</span><span class="p">)</span>
+<span class="n">G_patient</span><span class="o">.</span><span class="n">add_nodes_from</span><span class="p">(</span><span class="n">output_nodes_patient</span><span class="p">,</span> <span class="n">layer</span><span class="o">=</span><span class="s1">&#39;output&#39;</span><span class="p">)</span>
+
+<span class="c1"># Key narrative pathways to capture White Russian dynamics</span>
+<span class="n">thick_edges_patient</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">(</span><span class="s1">&#39;GABA&#39;</span><span class="p">,</span> <span class="s1">&#39;Pentatonic&#39;</span><span class="p">),</span>  <span class="c1"># Alcohol acts on GABA</span>
+    <span class="p">(</span><span class="s1">&#39;Adenosine</span><span class="se">\n</span><span class="s1"> 1&#39;</span><span class="p">,</span> <span class="s1">&#39;Pentatonic&#39;</span><span class="p">),</span>  <span class="c1"># Caffeine acts on Adenosine</span>
+    <span class="p">(</span><span class="s1">&#39;Caffeine&#39;</span><span class="p">,</span><span class="s1">&#39;Pentatonic&#39;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s1">&#39;Testosterone</span><span class="se">\n</span><span class="s1"> 7&#39;</span><span class="p">,</span><span class="s1">&#39;Pentatonic&#39;</span><span class="p">),</span> <span class="c1"># What is a man?</span>
+    <span class="p">(</span><span class="s1">&#39;Oxytocin</span><span class="se">\n</span><span class="s1"> ♯9&#39;</span><span class="p">,</span><span class="s1">&#39;Pentatonic&#39;</span><span class="p">),</span> <span class="c1"># Social bonding</span>
+    <span class="p">(</span><span class="s1">&#39;Serotonin</span><span class="se">\n</span><span class="s1"> 11&#39;</span><span class="p">,</span><span class="s1">&#39;Pentatonic&#39;</span><span class="p">),</span> <span class="c1"># Stress resilience</span>
+  <span class="c1">#  (&#39;Endorphin&#39;,&#39;Pentatonic&#39;), # Shared humor and pleasure in interactions</span>
+  <span class="c1">#  (&#39;ATP&#39;, &#39;Pentatonic&#39;),  # Cream provides ATP</span>
+  <span class="c1">#  (&#39;Pentatonic&#39;, &#39;Community&#39;),</span>
+  <span class="c1">#  (&#39;Dopamine&#39;,&#39;Chromatic&#39;),  </span>
+  <span class="c1">#  (&#39;Cortisol&#39;, &#39;Chromatic&#39;), (&#39;Adrenaline&#39;, &#39;Chromatic&#39;),</span>
+  <span class="c1">#  (&#39;Time&#39;, &#39;Chromatic&#39;), (&#39;Military&#39;, &#39;Chromatic&#39;),</span>
+  <span class="c1">#  (&#39;Cadence&#39;, &#39;Chromatic&#39;), (&#39;Pockets&#39;, &#39;Chromatic&#39;),</span>
+  <span class="c1">#  (&#39;Chromatic&#39;, &#39;Regional&#39;), (&#39;Chromatic&#39;, &#39;NexToken&#39;), </span>
+  <span class="c1">#  (&#39;Chromatic&#39;, &#39;National&#39;), (&#39;Chromatic&#39;, &#39;Global&#39;), </span>
+  <span class="c1">#  (&#39;Chromatic&#39;, &#39;Interstellar&#39;)</span>
+<span class="p">]</span>
+
+<span class="c1"># Connect all input nodes to hidden layer archetypes</span>
+<span class="k">for</span> <span class="n">input_node</span> <span class="ow">in</span> <span class="n">input_nodes_patient</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">hidden_node</span> <span class="ow">in</span> <span class="n">hidden_layer_labels_patient</span><span class="p">:</span>
+        <span class="n">G_patient</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="n">input_node</span><span class="p">,</span> <span class="n">hidden_node</span><span class="p">)</span>
+
+<span class="c1"># Connect hidden layer archetypes to output nodes with regular connections</span>
+<span class="k">for</span> <span class="n">hidden_node</span> <span class="ow">in</span> <span class="n">hidden_layer_labels_patient</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">output_node</span> <span class="ow">in</span> <span class="n">output_nodes_patient</span><span class="p">:</span>
+        <span class="n">G_patient</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="n">hidden_node</span><span class="p">,</span> <span class="n">output_node</span><span class="p">)</span>
+
+<span class="c1"># Add EAR sub-nodes (Emotional, Archetypal, Relational) within each hidden node as micro-clusters</span>
+<span class="n">ear_nodes</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Emotional&#39;</span><span class="p">,</span> <span class="s1">&#39;Archetypal&#39;</span><span class="p">,</span> <span class="s1">&#39;Relational&#39;</span><span class="p">]</span>
+<span class="n">ear_edges_patient</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">hidden_node</span> <span class="ow">in</span> <span class="n">hidden_layer_labels_patient</span><span class="p">:</span>
+    <span class="c1"># Add EAR sub-nodes within each hidden node</span>
+    <span class="k">for</span> <span class="n">ear_node</span> <span class="ow">in</span> <span class="n">ear_nodes</span><span class="p">:</span>
+        <span class="n">ear_sub_node</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">hidden_node</span><span class="si">}</span><span class="s2">_</span><span class="si">{</span><span class="n">ear_node</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="n">G_patient</span><span class="o">.</span><span class="n">add_node</span><span class="p">(</span><span class="n">ear_sub_node</span><span class="p">)</span>
+        <span class="c1"># Connect each EAR sub-node to its corresponding hidden node to create micro-clusters</span>
+        <span class="n">ear_edges_patient</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">hidden_node</span><span class="p">,</span> <span class="n">ear_sub_node</span><span class="p">))</span>
+
+<span class="c1"># Recursive and gradient edges within EAR nodes for transitional fluidity</span>
+<span class="n">recursive_edges_ear</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">(</span><span class="s1">&#39;Pentatonic_Emotional&#39;</span><span class="p">,</span> <span class="s1">&#39;Oxytocin</span><span class="se">\n</span><span class="s1"> ♯9&#39;</span><span class="p">),</span> <span class="c1"># Reinforces social bonding in Emotional-Paradiso</span>
+    <span class="p">(</span><span class="s1">&#39;Chromatic_Archetypal&#39;</span><span class="p">,</span> <span class="s1">&#39;Dopamine&#39;</span><span class="p">)</span>  <span class="c1"># Reinforces ambition in Archetypal-Inferno</span>
+<span class="p">]</span>
+
+<span class="c1"># Gradient connections within EAR nodes between hidden archetypes</span>
+<span class="n">gradient_edges_ear</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">(</span><span class="s1">&#39;Pentatonic_Archetypal&#39;</span><span class="p">,</span> <span class="s1">&#39;Diatonic_Archetypal&#39;</span><span class="p">),</span> <span class="c1"># transition between Embodied and Tokenized Archetypes</span>
+    <span class="p">(</span><span class="s1">&#39;Diatonic_Relational&#39;</span><span class="p">,</span> <span class="s1">&#39;Chromatic_Relational&#39;</span><span class="p">),</span>  <span class="c1"># transition between Tokenized and Weakness Relational</span>
+<span class="p">]</span>
+
+<span class="c1"># Add EAR edges (micro-cluster connections), recursive, and gradient edges to the graph</span>
+<span class="n">G_patient</span><span class="o">.</span><span class="n">add_edges_from</span><span class="p">(</span><span class="n">ear_edges_patient</span> <span class="o">+</span> <span class="n">recursive_edges_ear</span> <span class="o">+</span> <span class="n">gradient_edges_ear</span><span class="p">)</span>
+
+<span class="c1"># Define layout positions for main nodes and EAR sub-nodes</span>
+<span class="n">pos_patient</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">node</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">input_nodes_patient</span><span class="p">):</span>
+    <span class="n">pos_patient</span><span class="p">[</span><span class="n">node</span><span class="p">]</span> <span class="o">=</span> <span class="p">((</span><span class="n">i</span> <span class="o">+</span> <span class="mf">0.5</span><span class="p">)</span> <span class="o">*</span> <span class="mf">0.25</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>  <span class="c1"># Input nodes at the bottom</span>
+
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">node</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">output_nodes_patient</span><span class="p">):</span>
+    <span class="n">pos_patient</span><span class="p">[</span><span class="n">node</span><span class="p">]</span> <span class="o">=</span> <span class="p">((</span><span class="n">i</span> <span class="o">+</span> <span class="mf">1.5</span><span class="p">)</span> <span class="o">*</span> <span class="mf">0.6</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>  <span class="c1"># Output nodes at the top</span>
+
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">node</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">hidden_layer_labels_patient</span><span class="p">):</span>
+    <span class="n">pos_patient</span><span class="p">[</span><span class="n">node</span><span class="p">]</span> <span class="o">=</span> <span class="p">((</span><span class="n">i</span> <span class="o">+</span> <span class="mi">3</span><span class="p">)</span> <span class="o">*</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>  <span class="c1"># Hidden nodes in the middle layer</span>
+
+<span class="c1"># Assign positions for EAR sub-nodes around each hidden node</span>
+<span class="k">for</span> <span class="n">hidden_node</span> <span class="ow">in</span> <span class="n">hidden_layer_labels_patient</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">j</span><span class="p">,</span> <span class="n">ear</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">ear_nodes</span><span class="p">):</span>
+        <span class="n">ear_sub_node</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">hidden_node</span><span class="si">}</span><span class="s2">_</span><span class="si">{</span><span class="n">ear</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="n">pos_patient</span><span class="p">[</span><span class="n">ear_sub_node</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">pos_patient</span><span class="p">[</span><span class="n">hidden_node</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="p">(</span><span class="n">j</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="mf">0.2</span><span class="p">,</span> <span class="n">pos_patient</span><span class="p">[</span><span class="n">hidden_node</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="mf">0.2</span><span class="p">)</span>
+
+<span class="c1"># Define color scheme for nodes based on archetypes and White Russian dynamics</span>
+<span class="n">node_colors_patient</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;paleturquoise&#39;</span> <span class="k">if</span> <span class="n">node</span> <span class="ow">in</span> <span class="n">input_nodes_patient</span><span class="p">[:</span><span class="mi">10</span><span class="p">]</span> <span class="o">+</span> <span class="n">hidden_layer_labels_patient</span><span class="p">[:</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">output_nodes_patient</span><span class="p">[:</span><span class="mi">3</span><span class="p">]</span> <span class="k">else</span>
+    <span class="s1">&#39;lightgreen&#39;</span> <span class="k">if</span> <span class="n">node</span> <span class="ow">in</span> <span class="n">input_nodes_patient</span><span class="p">[</span><span class="mi">10</span><span class="p">:</span><span class="mi">20</span><span class="p">]</span> <span class="o">+</span> <span class="n">hidden_layer_labels_patient</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">2</span><span class="p">]</span> <span class="o">+</span> <span class="n">output_nodes_patient</span><span class="p">[</span><span class="mi">3</span><span class="p">:</span><span class="mi">6</span><span class="p">]</span> <span class="k">else</span>
+    <span class="s1">&#39;lightsalmon&#39;</span> <span class="k">if</span> <span class="n">node</span> <span class="ow">in</span> <span class="n">input_nodes_patient</span><span class="p">[</span><span class="mi">20</span><span class="p">:]</span> <span class="o">+</span> <span class="n">hidden_layer_labels_patient</span><span class="p">[</span><span class="mi">2</span><span class="p">:]</span> <span class="o">+</span> <span class="n">output_nodes_patient</span><span class="p">[</span><span class="mi">6</span><span class="p">:]</span> <span class="k">else</span>
+    <span class="s1">&#39;lightgray&#39;</span>
+    <span class="k">for</span> <span class="n">node</span> <span class="ow">in</span> <span class="n">G_patient</span><span class="o">.</span><span class="n">nodes</span><span class="p">()</span>
+<span class="p">]</span>
+
+<span class="c1"># Define edge thicknesses to distinguish narrative, recursive, and gradient edges</span>
+<span class="n">edge_widths_patient</span> <span class="o">=</span> <span class="p">[</span><span class="mi">3</span> <span class="k">if</span> <span class="n">edge</span> <span class="ow">in</span> <span class="n">thick_edges_patient</span> <span class="k">else</span> <span class="mf">0.2</span> <span class="k">for</span> <span class="n">edge</span> <span class="ow">in</span> <span class="n">G_patient</span><span class="o">.</span><span class="n">edges</span><span class="p">()]</span> <span class="o">+</span> \
+                      <span class="p">[</span><span class="mf">2.5</span><span class="p">]</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">recursive_edges_ear</span><span class="p">)</span> <span class="o">+</span> <span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">gradient_edges_ear</span><span class="p">)</span>
+
+<span class="c1"># Draw the graph with EAR micro-clusters, recursive, and gradient edges</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">25</span><span class="p">,</span> <span class="mi">70</span><span class="p">))</span>
+<span class="n">pos_rotated</span> <span class="o">=</span> <span class="p">{</span><span class="n">node</span><span class="p">:</span> <span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="o">-</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">node</span><span class="p">,</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span> <span class="ow">in</span> <span class="n">pos_patient</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span>
+<span class="n">nx</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="n">G_patient</span><span class="p">,</span> <span class="n">pos_rotated</span><span class="p">,</span> <span class="n">with_labels</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">node_size</span><span class="o">=</span><span class="mi">5000</span><span class="p">,</span> <span class="n">node_color</span><span class="o">=</span><span class="n">node_colors_patient</span><span class="p">,</span> 
+        <span class="n">font_size</span><span class="o">=</span><span class="mi">9</span><span class="p">,</span> <span class="n">font_weight</span><span class="o">=</span><span class="s1">&#39;bold&#39;</span><span class="p">,</span> <span class="n">arrows</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="n">edge_widths_patient</span><span class="p">)</span>
+
+<span class="c1"># Add title and clean visualization</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;A New Vocabulary for the Dominant&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<img alt="../_images/1067ad6765726c3c27915ebd5de5c9b6c4c7792bec39fd35d431703060874b30.png" src="../_images/1067ad6765726c3c27915ebd5de5c9b6c4c7792bec39fd35d431703060874b30.png" />
+</div>
+</div>
+<figure class="align-default" id="id13">
+<a class="reference internal image-reference" href="../_images/blanche.png"><img alt="../_images/blanche.png" src="../_images/blanche.png" style="width: 1px; height: 1px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 6 </span><span class="caption-text"><em>Pentatonic Embodies Paradiso, Diatonic Tokenizes Limbo, and Chromatic Transforms Inferno</em>.</span><a class="headerlink" href="#id13" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>This discovery is far from theoretical; it carries profound implications for how we approach improvisation:</p>
+<ul class="simple">
+<li><p><strong>Reorienting Improvisation Around the Dominant</strong>: Instead of conceptualizing scales primarily through their root relationships, a musician can view any scale as an extension of the dominant’s pentatonic framework. This paradigm shift streamlines decision-making while unlocking fresh pathways for creativity.</p></li>
+<li><p><strong>Building Lines from the Pentatonic</strong>: Improvisers can treat the pentatonic as a “safe zone” within the dominant’s harmonic field. Starting from these foundational notes, they can explore chromatic alterations and extensions without compromising the coherence of their lines.</p></li>
+<li><p><strong>Universal Transposition</strong>: The pentatonic’s versatility makes this framework adaptable to any key, mode, or genre. Whether applied in gospel, jazz, R&amp;B, or classical improvisation, the pentatonic emerges as a universal toolkit.</p></li>
+</ul>
+<p>A particularly compelling outcome of this neural network model is how its layers mirror the structure of musical experience:</p>
+<ul class="simple">
+<li><p>The <strong>input layer</strong> is <strong>phonetic and emotional</strong>, embodying the primal connection to sound and feeling.</p></li>
+<li><p>The <strong>hidden layer</strong> is <strong>archetypal and grounded in the harmonic series</strong>, reflecting timeless patterns that underlie musical language.</p></li>
+<li><p>The <strong>output layer</strong> is <strong>relational</strong>, resonating with the listener on multiple levels—speaking to the inner soul, reinforcing family bonds, enriching community ties, and connecting across borders to regional, national, and global realms.</p></li>
+</ul>
+<p>Within this framework, the Mixolydian ♭9♯9♭13 scale (a Spanish Phrygian mode) demonstrates how chromaticism “digests” microtonal scales, integrating them into the chromatic global sphere. This parallels how blue notes from jazz once transcended Western temperament, falling “between the cracks” of the diatonic system and transforming it. Such a perspective highlights the universality and adaptability of music as a language that bridges emotional, cultural, and theoretical divides.</p>
 </section>
 <section id="practical-implications-improvisation-and-composition">
 <h3>Practical Implications: Improvisation and Composition<a class="headerlink" href="#practical-implications-improvisation-and-composition" title="Permalink to this heading">#</a></h3>
@@ -890,10 +1050,10 @@ Mr Döpfner was an early convert to online business. He sold off some of Springe
     allowfullscreen 
     title="YouTube video player">
 </iframe>
-<figure class="align-default" id="id13">
+<figure class="align-default" id="id14">
 <a class="reference internal image-reference" href="../_images/blanche.png"><img alt="../_images/blanche.png" src="../_images/blanche.png" style="width: 1px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 6 </span><span class="caption-text"><em>Adhaan by Ahmad Al-Nafees</em>. YouTube commenter on the <code class="docutils literal notranslate"><span class="pre">stunning</span></code> aesthetics of this microtonal melody: I was a physicist, so supposedly an atheist; I am a lapsed British Christian, so supposedly have no faith. I do not subscribe to any religion.  Yet … last year I was in Istanbul during Ramadan, staying near the Blue Mosque.  Every day I awoke to the call to prayer. All I could hear across that huge, modern city was this <code class="docutils literal notranslate"><span class="pre">stunningly</span></code> beautiful call.  It uplifted me; and sometimes I wept.  Now I am in Amman, and it still inspires.  Whether you believe in a God or not, there is deep spirituality in all of us. Who cares about the label: Atheist, Christian, Muslim, Jew, Hindu?  If God means anything it is goodness. Those who cloak themselves in God to justify atrocity spit in God’s face.</span><a class="headerlink" href="#id13" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 7 </span><span class="caption-text"><em>Adhaan by Ahmad Al-Nafees</em>. YouTube commenter on the <code class="docutils literal notranslate"><span class="pre">stunning</span></code> aesthetics of this microtonal melody: I was a physicist, so supposedly an atheist; I am a lapsed British Christian, so supposedly have no faith. I do not subscribe to any religion.  Yet … last year I was in Istanbul during Ramadan, staying near the Blue Mosque.  Every day I awoke to the call to prayer. All I could hear across that huge, modern city was this <code class="docutils literal notranslate"><span class="pre">stunningly</span></code> beautiful call.  It uplifted me; and sometimes I wept.  Now I am in Amman, and it still inspires.  Whether you believe in a God or not, there is deep spirituality in all of us. Who cares about the label: Atheist, Christian, Muslim, Jew, Hindu?  If God means anything it is goodness. Those who cloak themselves in God to justify atrocity spit in God’s face.</span><a class="headerlink" href="#id14" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 <ol class="arabic simple" start="3">
@@ -1660,101 +1820,101 @@ There’s room to market this as a <strong>customizable solution</strong> for in
   <source src="../media/contrail_1.MP4" type="video/mp4">
   Your browser does not support the video element.
 </video>
-<figure class="align-default" id="id14">
+<figure class="align-default" id="id15">
 <a class="reference internal image-reference" href="../_images/blanche.png"><img alt="../_images/blanche.png" src="../_images/blanche.png" style="width: 1px; height: 1px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 7 </span><span class="caption-text"><em>Contrail Video 1</em>. This video was shot on 33rd street, which is oriented East-West, and my gaze was Eastward. BWI is further south and so these contrails are not immediately comprehensible.</span><a class="headerlink" href="#id14" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 8 </span><span class="caption-text"><em>Contrail Video 1</em>. This video was shot on 33rd street, which is oriented East-West, and my gaze was Eastward. BWI is further south and so these contrails are not immediately comprehensible.</span><a class="headerlink" href="#id15" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 <video controls style="width: 100%;">
   <source src="../media/contrail_2.MP4" type="video/mp4">
   Your browser does not support the video element.
 </video>
-<figure class="align-default" id="id15">
+<figure class="align-default" id="id16">
 <a class="reference internal image-reference" href="../_images/blanche.png"><img alt="../_images/blanche.png" src="../_images/blanche.png" style="width: 1px; height: 1px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 8 </span><span class="caption-text"><em>Contrail Video 2</em>. Our gaze here is moving from Eastward to South and then a bit to Southwest.</span><a class="headerlink" href="#id15" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 9 </span><span class="caption-text"><em>Contrail Video 2</em>. Our gaze here is moving from Eastward to South and then a bit to Southwest.</span><a class="headerlink" href="#id16" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 <video controls style="width: 100%;">
   <source src="../media/contrail_3.MP4" type="video/mp4">
   Your browser does not support the video element.
 </video>
-<figure class="align-default" id="id16">
+<figure class="align-default" id="id17">
 <a class="reference internal image-reference" href="../_images/blanche.png"><img alt="../_images/blanche.png" src="../_images/blanche.png" style="width: 1px; height: 1px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 9 </span><span class="caption-text"><em>Contrail Video 3</em>. What is important about this video is Faith Evans &amp; Stevie J’s “In a Minute” is playing in the background. Also, this video was shot an hour after the ones above. Steven Dedalus (or perhaps Buck Mulligan) would be waking up around this time and might consider the clouds he sees to be from “nature”. But for we night Owls, this sky was a perfect clear blue by 6am – before the aviation industry started doing its graffiti. One can’t question how much the cloud cover reduces the suns intensity.  By extension, one might appreciate how much these cloud reduce emissions from earth to the cosmos. Pretty damnéd impressive!</span><a class="headerlink" href="#id16" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 10 </span><span class="caption-text"><em>Contrail Video 3</em>. What is important about this video is Faith Evans &amp; Stevie J’s “In a Minute” is playing in the background. Also, this video was shot an hour after the ones above. Steven Dedalus (or perhaps Buck Mulligan) would be waking up around this time and might consider the clouds he sees to be from “nature”. But for we night Owls, this sky was a perfect clear blue by 6am – before the aviation industry started doing its graffiti. One can’t question how much the cloud cover reduces the suns intensity.  By extension, one might appreciate how much these cloud reduce emissions from earth to the cosmos. Pretty damnéd impressive!</span><a class="headerlink" href="#id17" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 <section id="id2">
 <h3>1<a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h3>
-<figure class="align-default" id="id17">
+<figure class="align-default" id="id18">
 <a class="reference internal image-reference" href="../_images/contrail_1_fig.jpeg"><img alt="../_images/contrail_1_fig.jpeg" src="../_images/contrail_1_fig.jpeg" style="width: 100%;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 10 </span><span class="caption-text"><em>Dynamic vs. Static Images</em>. Ok, we’ve appreciated the videos above. Here are a few select static images. Enjoy!</span><a class="headerlink" href="#id17" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 11 </span><span class="caption-text"><em>Dynamic vs. Static Images</em>. Ok, we’ve appreciated the videos above. Here are a few select static images. Enjoy!</span><a class="headerlink" href="#id18" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 </section>
 <section id="id3">
 <h3>2<a class="headerlink" href="#id3" title="Permalink to this heading">#</a></h3>
-<figure class="align-default" id="id18">
+<figure class="align-default" id="id19">
 <a class="reference internal image-reference" href="../_images/contrail_2_fig.jpeg"><img alt="../_images/contrail_2_fig.jpeg" src="../_images/contrail_2_fig.jpeg" style="width: 100%;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 11 </span><span class="caption-text"><em>BWI, Martin Airport, Philadelphia, IAD, DCA</em>. These are regional airports that might be contributing to this graffiti. Also, planes to and from Europe, that aren’t connecting through any of these airports can be seen cruising at 30,000. Contrails at orthogonal angles strongly suggest that more than one airport is of interest here. If we think in terms of nodes and edges, there is certainly more than one node at play – and thus criss-crossing edges!</span><a class="headerlink" href="#id18" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 12 </span><span class="caption-text"><em>BWI, Martin Airport, Philadelphia, IAD, DCA</em>. These are regional airports that might be contributing to this graffiti. Also, planes to and from Europe, that aren’t connecting through any of these airports can be seen cruising at 30,000. Contrails at orthogonal angles strongly suggest that more than one airport is of interest here. If we think in terms of nodes and edges, there is certainly more than one node at play – and thus criss-crossing edges!</span><a class="headerlink" href="#id19" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 </section>
 <section id="id4">
 <h3>3<a class="headerlink" href="#id4" title="Permalink to this heading">#</a></h3>
-<figure class="align-default" id="id19">
+<figure class="align-default" id="id20">
 <a class="reference internal image-reference" href="../_images/contrail_3_fig.jpeg"><img alt="../_images/contrail_3_fig.jpeg" src="../_images/contrail_3_fig.jpeg" style="width: 100%;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 12 </span><span class="caption-text"><em>More than one Node</em>. This image confirms that the edges (contrails) we witness connect, not two, but many more nodes (airports). Key word: <code class="docutils literal notranslate"><span class="pre">orthogonal</span> <span class="pre">contrails</span></code>!</span><a class="headerlink" href="#id19" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 13 </span><span class="caption-text"><em>More than one Node</em>. This image confirms that the edges (contrails) we witness connect, not two, but many more nodes (airports). Key word: <code class="docutils literal notranslate"><span class="pre">orthogonal</span> <span class="pre">contrails</span></code>!</span><a class="headerlink" href="#id20" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 </section>
 <section id="id5">
 <h3>4<a class="headerlink" href="#id5" title="Permalink to this heading">#</a></h3>
-<figure class="align-default" id="id20">
+<figure class="align-default" id="id21">
 <a class="reference internal image-reference" href="../_images/contrail_4_fig.jpeg"><img alt="../_images/contrail_4_fig.jpeg" src="../_images/contrail_4_fig.jpeg" style="width: 100%;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 13 </span><span class="caption-text"><em>International Airport at Dulles</em>. We can perceive 2-3 contrails from IAD, crossing the BWI contrails at right angles.</span><a class="headerlink" href="#id20" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 14 </span><span class="caption-text"><em>International Airport at Dulles</em>. We can perceive 2-3 contrails from IAD, crossing the BWI contrails at right angles.</span><a class="headerlink" href="#id21" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 </section>
 <section id="id6">
 <h3>5<a class="headerlink" href="#id6" title="Permalink to this heading">#</a></h3>
-<figure class="align-default" id="id21">
+<figure class="align-default" id="id22">
 <a class="reference internal image-reference" href="../_images/aqi.PNG"><img alt="../_images/aqi.PNG" src="../_images/aqi.PNG" style="width: 100%;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 14 </span><span class="caption-text"><em>Trans Atlantic Flights</em>. We can also perceive contrails that aren’t local. These are flights to and from Europe, but not in any way engaged with the regional airports. One of them produces are horizontal contrail here, though its much faded and not easy to make out.</span><a class="headerlink" href="#id21" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 15 </span><span class="caption-text"><em>Trans Atlantic Flights</em>. We can also perceive contrails that aren’t local. These are flights to and from Europe, but not in any way engaged with the regional airports. One of them produces are horizontal contrail here, though its much faded and not easy to make out.</span><a class="headerlink" href="#id22" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 </section>
 <section id="id7">
 <h3>6<a class="headerlink" href="#id7" title="Permalink to this heading">#</a></h3>
-<figure class="align-default" id="id22">
+<figure class="align-default" id="id23">
 <a class="reference internal image-reference" href="../_images/precipitation.PNG"><img alt="../_images/precipitation.PNG" src="../_images/precipitation.PNG" style="width: 100%;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 15 </span><span class="caption-text"><em>AQI</em>. Breath of God! High-quality air on this Sunday morning.</span><a class="headerlink" href="#id22" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 16 </span><span class="caption-text"><em>AQI</em>. Breath of God! High-quality air on this Sunday morning.</span><a class="headerlink" href="#id23" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 </section>
 <section id="id8">
 <h3>7<a class="headerlink" href="#id8" title="Permalink to this heading">#</a></h3>
-<figure class="align-default" id="id23">
+<figure class="align-default" id="id24">
 <a class="reference internal image-reference" href="../_images/temperature.PNG"><img alt="../_images/temperature.PNG" src="../_images/temperature.PNG" style="width: 100%;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 16 </span><span class="caption-text"><em>Fall</em>. Warmest Fall in the last 20 years that I’ve been in Baltimore.</span><a class="headerlink" href="#id23" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 17 </span><span class="caption-text"><em>Fall</em>. Warmest Fall in the last 20 years that I’ve been in Baltimore.</span><a class="headerlink" href="#id24" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 </section>
 <section id="id9">
 <h3>8<a class="headerlink" href="#id9" title="Permalink to this heading">#</a></h3>
-<figure class="align-default" id="id24">
+<figure class="align-default" id="id25">
 <a class="reference internal image-reference" href="../_images/wind.PNG"><img alt="../_images/wind.PNG" src="../_images/wind.PNG" style="width: 100%;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 17 </span><span class="caption-text"><em>Wind</em>. This is a very gentle breeze, but it disrupts the contrails in no more than 20min.</span><a class="headerlink" href="#id24" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 18 </span><span class="caption-text"><em>Wind</em>. This is a very gentle breeze, but it disrupts the contrails in no more than 20min.</span><a class="headerlink" href="#id25" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 <p><em>Analyze</em></p>
@@ -2256,10 +2416,10 @@ There’s room to market this as a <strong>customizable solution</strong> for in
     allowfullscreen 
     title="YouTube video player">
 </iframe>
-<figure class="align-default" id="id25">
+<figure class="align-default" id="id26">
 <a class="reference internal image-reference" href="act1/figures/blanche.*"><img alt="act1/figures/blanche.*" src="act1/figures/blanche.*" style="width: 1px; height: 1px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 18 </span><span class="caption-text"><em>Sui Generis</em>. Here’s a voice that one can distinguish with 100% accuracy from all others. It’s in the realm of Brandy, Mary J. Blidge, Stevie Wonder, Babyface, etc.</span><a class="headerlink" href="#id25" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 19 </span><span class="caption-text"><em>Sui Generis</em>. Here’s a voice that one can distinguish with 100% accuracy from all others. It’s in the realm of Brandy, Mary J. Blidge, Stevie Wonder, Babyface, etc.</span><a class="headerlink" href="#id26" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 </section>
@@ -2316,10 +2476,10 @@ There’s room to market this as a <strong>customizable solution</strong> for in
     allowfullscreen 
     title="YouTube video player">
 </iframe>
-<figure class="align-default" id="id26">
+<figure class="align-default" id="id27">
 <a class="reference internal image-reference" href="../_images/blanche.png"><img alt="../_images/blanche.png" src="../_images/blanche.png" style="width: 1px; height: 1px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 19 </span><span class="caption-text"><em>YouTube Comment</em>. U can definitely tell he was raised in the church by the way he plays them keys. Let the church say “<a class="reference external" href="https://www.youtube.com/watch?v=sZKA2iY9ATA">Amen!</a>” He really holds it down!</span><a class="headerlink" href="#id26" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 20 </span><span class="caption-text"><em>YouTube Comment</em>. U can definitely tell he was raised in the church by the way he plays them keys. Let the church say “<a class="reference external" href="https://www.youtube.com/watch?v=sZKA2iY9ATA">Amen!</a>” He really holds it down!</span><a class="headerlink" href="#id27" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 <p><strong>Devante’s Swing: A Testament to <a class="reference internal" href="#"><span class="xref myst">Reverence</span></a> and Mastery</strong></p>
@@ -2357,10 +2517,10 @@ There’s room to market this as a <strong>customizable solution</strong> for in
     allowfullscreen 
     title="YouTube video player">
 </iframe>
-<figure class="align-default" id="id27">
+<figure class="align-default" id="id28">
 <a class="reference internal image-reference" href="act1/figures/blanche.*"><img alt="act1/figures/blanche.*" src="act1/figures/blanche.*" style="width: 1px; height: 1px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 20 </span><span class="caption-text"><em>Yoweri Kaguta Museveni</em>. He’s talked about hunters, gatherers, farmers, manufacturers, energy, transportation, and wealth before. A very broken record that half a century ago hit a nail on the head: The problem with Africa is leaders who overstay their welcome!</span><a class="headerlink" href="#id27" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 21 </span><span class="caption-text"><em>Yoweri Kaguta Museveni</em>. He’s talked about hunters, gatherers, farmers, manufacturers, energy, transportation, and wealth before. A very broken record that half a century ago hit a nail on the head: The problem with Africa is leaders who overstay their welcome!</span><a class="headerlink" href="#id28" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 </section>
@@ -2412,10 +2572,10 @@ Assistant Professor of Surgery, Johns Hopkins (resigning to pursue writing full-
 <section id="baltimore-sunset-reflection">
 <h2>Baltimore Sunset Reflection<a class="headerlink" href="#baltimore-sunset-reflection" title="Permalink to this heading">#</a></h2>
 <p>This photograph captures a Baltimore evening in mid-November 2024, specifically on 33rd Street at 5:08 PM. It is a moment of fleeting beauty—a delicate interplay between the vibrant horizon and the muted suburban landscape below. The image offers a layered composition: a neighborhood transitioning from autumn’s golden glow to winter’s starkness, set against the backdrop of a vivid, almost fiery sunset. Let us explore the visual, thematic, and metaphorical layers of this scene.</p>
-<figure class="align-default" id="id28">
+<figure class="align-default" id="id29">
 <a class="reference internal image-reference" href="../_images/sunset_baltimore.jpeg"><img alt="../_images/sunset_baltimore.jpeg" src="../_images/sunset_baltimore.jpeg" style="width: 100%;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 21 </span><span class="caption-text"><em>Baltimore Sunset</em>. The foreground provides a grounding element: a residential neighborhood with small structures, parked cars, and fences.</span><a class="headerlink" href="#id28" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 22 </span><span class="caption-text"><em>Baltimore Sunset</em>. The foreground provides a grounding element: a residential neighborhood with small structures, parked cars, and fences.</span><a class="headerlink" href="#id29" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 <section id="the-colors-of-transition">
